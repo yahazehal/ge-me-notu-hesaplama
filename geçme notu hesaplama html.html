@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Notu Hesaplama</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Final Notu Hesaplama</h1>
+    <p>Vize Notunuzu Girin:</p>
+    <input type="number" id="vizeNotu" placeholder="Vize Notu">
+    <br>
+    <button onclick="hesapla()">Hesapla</button>
+    <p id="sonuc"></p>
+
+    <script>
+        function hesapla() {
+            const vizeNotu = parseFloat(document.getElementById('vizeNotu').value);
+            if (isNaN(vizeNotu)) {
+                alert("Lütfen geçerli bir vize notu girin.");
+                return;
+            }
+            const minFinalNotu = 83.33 - (2 / 3) * vizeNotu;
+            document.getElementById('sonuc').innerText = 
+                `Eğer vize notunuz ${vizeNotu} ise, başarı limiti olan 50'yi geçmek için final sınavından en az ${minFinalNotu.toFixed(2)} almanız gerekir.`;
+        }
+    </script>
+</body>
+</html>
